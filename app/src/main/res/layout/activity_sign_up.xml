@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signupfeature.SignUpActivity">
+
+    <EditText
+        android:id="@+id/signUpLoginField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/login"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/fill_in_all_fields"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/signUpPasswordField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/signUpLoginField"
+        app:layout_constraintTop_toBottomOf="@+id/signUpLoginField"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/forenameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/forename"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/signUpPasswordField"
+        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordField"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/surnameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/surname"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/forenameField"
+        app:layout_constraintTop_toBottomOf="@+id/forenameField"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/countryField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/country"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/surnameField"
+        app:layout_constraintTop_toBottomOf="@+id/surnameField"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/cityField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/city"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/countryField"
+        app:layout_constraintTop_toBottomOf="@+id/countryField"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/chooseInterestsButton"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onChooseInterestsBtnClick"
+        android:text="@string/choose_your_interests"
+        app:layout_constraintStart_toStartOf="@+id/cityField"
+        app:layout_constraintTop_toBottomOf="@+id/cityField" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:onClick="onSignUpBtnClick"
+        android:text="@string/sign_up"
+        app:layout_constraintStart_toStartOf="@+id/chooseInterestsButton"
+        app:layout_constraintTop_toBottomOf="@+id/chooseInterestsButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
