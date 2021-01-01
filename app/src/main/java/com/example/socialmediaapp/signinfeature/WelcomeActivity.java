@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.socialmediaapp.R;
+import com.example.socialmediaapp.profiles.activities.ProfileActivity;
 import com.example.socialmediaapp.signupfeature.SignUpActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,14 +31,19 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void onLoginBtnClick(View v) {
         signInButton.setEnabled(false);
-        signInLogic.signIn(loginField.getText().toString(), passwordField.getText().toString(), WelcomeActivity.this);
-        signInButton.setEnabled(true);
+        if (signInLogic.signIn(loginField.getText().toString(), passwordField.getText().toString(), WelcomeActivity.this)) {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            signInButton.setEnabled(true);
+        }
     }
 
     public void onRegisterBtnClick(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
-//        finish();
+        finish();
     }
 
 

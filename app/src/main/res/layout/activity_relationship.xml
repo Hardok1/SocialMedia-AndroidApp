@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".relationships.activities.RelationshipActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/relationships_toolbar_nav"
+        android:theme="@style/Theme.SocialMediaApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/changeRelationshipTypeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onChangeRelationshipTypeBtnClick"
+        android:text="@string/change_relationship_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relationships_toolbar_nav" />
+
+    <TextView
+        android:id="@+id/relationshipTypeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/changeRelationshipTypeButton"
+        app:layout_constraintTop_toBottomOf="@+id/changeRelationshipTypeButton" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/relationshipRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/relationshipTypeText"
+        app:layout_constraintTop_toBottomOf="@+id/relationshipTypeText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

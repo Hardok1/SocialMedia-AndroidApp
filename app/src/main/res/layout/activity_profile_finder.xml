@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profiles.activities.ProfileFinderActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/finder_toolbar_nav"
+        android:theme="@style/Theme.SocialMediaApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/changeSearchingProfileMethodButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onChangeSearchingProfileMethodBtnClick"
+        android:text="@string/change_search_method"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finder_toolbar_nav" />
+
+    <Button
+        android:id="@+id/chooseInterestButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:onClick="onChooseInterestBtnClick"
+        android:text="@string/choose_interest"
+        app:layout_constraintStart_toStartOf="@+id/countrySearchingField"
+        app:layout_constraintTop_toBottomOf="@+id/countrySearchingField" />
+
+    <EditText
+        android:id="@+id/surnameSearchingField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:autofillHints=""
+        android:ems="6"
+        android:hint="@string/surname"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/forenameSearchingField"
+        app:layout_constraintTop_toTopOf="@+id/forenameSearchingField" />
+
+    <EditText
+        android:id="@+id/countrySearchingField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:autofillHints=""
+        android:ems="6"
+        android:hint="@string/country"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/forenameSearchingField"
+        app:layout_constraintTop_toBottomOf="@+id/forenameSearchingField" />
+
+    <EditText
+        android:id="@+id/citySearchingField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="6"
+        android:hint="@string/city"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/surnameSearchingField"
+        app:layout_constraintTop_toTopOf="@+id/countrySearchingField" />
+
+    <EditText
+        android:id="@+id/forenameSearchingField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:ems="6"
+        android:hint="@string/forename"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/changeSearchingProfileMethodButton"
+        app:layout_constraintTop_toBottomOf="@+id/changeSearchingProfileMethodButton" />
+
+    <TextView
+        android:id="@+id/searchMethodTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/changeSearchingProfileMethodButton"
+        app:layout_constraintStart_toEndOf="@+id/changeSearchingProfileMethodButton"
+        app:layout_constraintTop_toTopOf="@+id/changeSearchingProfileMethodButton"
+        app:layout_constraintVertical_bias="0.413" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/profilesRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:layout_constraintStart_toStartOf="@+id/nextProfileButton"
+        app:layout_constraintTop_toBottomOf="@+id/nextProfileButton" />
+
+    <Button
+        android:id="@+id/findProfilesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:onClick="onFindProfilesBtnClick"
+        android:text="@string/find_profiles"
+        app:layout_constraintStart_toEndOf="@+id/chooseInterestButton"
+        app:layout_constraintTop_toTopOf="@+id/chooseInterestButton" />
+
+    <Button
+        android:id="@+id/nextProfileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:onClick="onNextBtnClick"
+        android:text="@string/next"
+        app:layout_constraintStart_toStartOf="@+id/chooseInterestButton"
+        app:layout_constraintTop_toBottomOf="@+id/chooseInterestButton" />
+
+    <Button
+        android:id="@+id/previousProfileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:onClick="onPreviousBtnClick"
+        android:text="@string/previous"
+        app:layout_constraintStart_toEndOf="@+id/nextProfileButton"
+        app:layout_constraintTop_toTopOf="@+id/nextProfileButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

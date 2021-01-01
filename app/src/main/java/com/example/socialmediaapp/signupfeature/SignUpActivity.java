@@ -1,6 +1,7 @@
 package com.example.socialmediaapp.signupfeature;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,7 +10,9 @@ import android.widget.Toast;
 
 import com.example.socialmediaapp.APIClient;
 import com.example.socialmediaapp.R;
+import com.example.socialmediaapp.profiles.activities.ProfileActivity;
 import com.example.socialmediaapp.signinfeature.SignInLogic;
+import com.example.socialmediaapp.signinfeature.WelcomeActivity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -135,7 +138,7 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
                         Toast.makeText(SignUpActivity.this, "Signed up succesfully!", Toast.LENGTH_SHORT).show();
-                        signInLogic.signIn(loginField.getText().toString(), passwordField.getText().toString(), SignUpActivity.this);
+                        signIn();
                     } else if (response.code() == 409) {
                         Toast.makeText(SignUpActivity.this, "This login already exists!", Toast.LENGTH_SHORT).show();
                     } else {
@@ -149,8 +152,17 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             });
         }
-        signUpButton.setEnabled(true);
     }
 
+    private void signIn(){
+        if (signInLogic.signIn(loginField.getText().toString(), passwordField.getText().toString(), SignUpActivity.this)){
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, WelcomeActivity.class);
+            startActivity(intent);
+        }
+        finish();
+    }
 
 }

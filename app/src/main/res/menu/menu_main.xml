@@ -3,8 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.socialmediaapp.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/menu_profile"
+        android:title="@string/my_profile"
+        android:icon="@drawable/ic_action_name"/>
+    <item
+        android:id="@+id/menu_searching"
+        android:title="@string/find_profiles"
+        android:icon="@drawable/ic_searching"/>
+    <item
+        android:id="@+id/menu_relationships"
+        android:title="@string/my_relationships"/>
+
 </menu>

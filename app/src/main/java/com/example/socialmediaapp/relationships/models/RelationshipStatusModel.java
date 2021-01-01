@@ -1,4 +1,4 @@
-package com.example.socialmediaapp.signinfeature;
+package com.example.socialmediaapp.relationships.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SignInBody {
-    private String login;
-    private String password;
+public class RelationshipStatusModel {
+    private String status;
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profiles.activities.EditProfileActivity">
+
+    <EditText
+        android:id="@+id/editedPasswordField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/editedForenameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/forename"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editedPasswordField"
+        app:layout_constraintTop_toBottomOf="@+id/editedPasswordField"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editedSurnameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/surname"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editedForenameField"
+        app:layout_constraintTop_toBottomOf="@+id/editedForenameField"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editedCountryField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/country"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editedSurnameField"
+        app:layout_constraintTop_toBottomOf="@+id/editedSurnameField"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editedCityField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/city"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editedCountryField"
+        app:layout_constraintTop_toBottomOf="@+id/editedCountryField"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/editedChooseInterestsButton"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onChooseInterestsBtnClick"
+        android:text="@string/choose_your_interests"
+        app:layout_constraintStart_toStartOf="@+id/editedCityField"
+        app:layout_constraintTop_toBottomOf="@+id/editedCityField" />
+
+    <Button
+        android:id="@+id/saveEditedFieldsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:onClick="onSaveBtnClick"
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="@+id/editedChooseInterestsButton"
+        app:layout_constraintTop_toBottomOf="@+id/editedChooseInterestsButton" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/edit_fields_to_change_your_account_information"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/deleteAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:onClick="onDeleteAccountBtnClick"
+        android:text="@string/delete_account"
+        app:layout_constraintStart_toStartOf="@+id/saveEditedFieldsButton"
+        app:layout_constraintTop_toBottomOf="@+id/saveEditedFieldsButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

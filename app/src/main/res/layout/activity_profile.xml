@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profiles.activities.ProfileActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_nav"
+        android:theme="@style/Theme.SocialMediaApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profileNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_nav" />
+
+    <Button
+        android:id="@+id/accountActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="onAccountActionBtnClick"
+        app:layout_constraintStart_toStartOf="@+id/countryNameText"
+        app:layout_constraintTop_toBottomOf="@+id/cityNameText" />
+
+    <Button
+        android:id="@+id/accountSecondActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:onClick="onAccountSecondBtnClick"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/accountActionButton"
+        app:layout_constraintTop_toTopOf="@+id/accountActionButton" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/postsRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/accountActionButton"
+        app:layout_constraintTop_toBottomOf="@+id/reloadButton" />
+
+    <TextView
+        android:id="@+id/countryNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/profileNameText"
+        app:layout_constraintTop_toBottomOf="@+id/profileNameText" />
+
+    <TextView
+        android:id="@+id/cityNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/countryNameText"
+        app:layout_constraintEnd_toStartOf="@+id/showAccountInterestsButton"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toEndOf="@+id/countryNameText" />
+
+    <Button
+        android:id="@+id/showAccountInterestsButton"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:onClick="onShowAccountInterestsBtnClick"
+        android:text="@string/interests"
+        app:layout_constraintBottom_toBottomOf="@+id/cityNameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cityNameText"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <Button
+        android:id="@+id/addPostButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onAddPostBtnClick"
+        android:text="@string/add_post"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/showAccountInterestsButton"
+        app:layout_constraintTop_toTopOf="@+id/accountSecondActionButton" />
+
+    <Button
+        android:id="@+id/reloadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="onReloadBtnClick"
+        android:text="@string/reload"
+        app:layout_constraintStart_toStartOf="@+id/accountActionButton"
+        app:layout_constraintTop_toBottomOf="@+id/accountActionButton" />
+
+    <Button
+        android:id="@+id/loadMoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/load_more"
+        app:layout_constraintStart_toEndOf="@+id/reloadButton"
+        app:layout_constraintTop_toTopOf="@+id/reloadButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SocialMediaApp">
+        android:theme="@style/Theme.SocialMediaApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".relationships.activities.RelationshipActivity"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar" />
+        <activity
+            android:name=".profiles.activities.ProfileFinderActivity"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar" />
+        <activity
+            android:name=".comments.activities.CommentActivity"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar" />
+        <activity
+            android:name=".profiles.activities.EditProfileActivity"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar" />
+        <activity
+            android:name=".profiles.activities.ProfileActivity"
+            android:theme="@style/Theme.SocialMediaApp.NoActionBar" />
         <activity
             android:name=".signupfeature.SignUpActivity"
             android:theme="@style/Theme.SocialMediaApp.NoActionBar" />
@@ -21,10 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.SocialMediaApp.NoActionBar" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
