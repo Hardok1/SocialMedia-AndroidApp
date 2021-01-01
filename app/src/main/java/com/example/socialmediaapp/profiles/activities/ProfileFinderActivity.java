@@ -88,7 +88,7 @@ public class ProfileFinderActivity extends AppCompatActivity {
         cityField = (EditText) findViewById(R.id.citySearchingField);
         token = getSharedPreferences("app", MODE_PRIVATE).getString("TOKEN", "fail");
         accountId = getSharedPreferences("app", MODE_PRIVATE).getInt("accountId", 0);
-        toolbar = (Toolbar) findViewById(R.id.toolbar_nav);
+        toolbar = (Toolbar) findViewById(R.id.finder_toolbar_nav);
         toolbar.setTitle("Search for profiles");
         setSupportActionBar(toolbar);
         loadInterests();

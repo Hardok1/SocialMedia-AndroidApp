@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.socialmediaapp.APIClient;
 import com.example.socialmediaapp.R;
+import com.example.socialmediaapp.chat.ChatAPI;
+import com.example.socialmediaapp.chat.ChatActivity;
 import com.example.socialmediaapp.posts.PostAPI;
 import com.example.socialmediaapp.posts.PostAdapter;
 import com.example.socialmediaapp.posts.models.PostModel;
@@ -66,13 +68,14 @@ public class ProfileActivity extends AppCompatActivity {
     private Set<String> interests;
     private int relationshipStatus;
     private String token;
-    Bundle extras;
-    PostAPI postAPI;
-    int postsPage;
-    List<PostModel> posts;
-    RecyclerView recyclerView;
-    PostAdapter postAdapter;
-    Toolbar toolbar;
+    private Bundle extras;
+    private PostAPI postAPI;
+    private ChatAPI chatAPI;
+    private int postsPage;
+    private List<PostModel> posts;
+    private RecyclerView recyclerView;
+    private PostAdapter postAdapter;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
         accountAPI = APIClient.getRetrofit().create(AccountAPI.class);
         relationshipAPI = APIClient.getRetrofit().create(RelationshipAPI.class);
         postAPI = APIClient.getRetrofit().create(PostAPI.class);
+        chatAPI = APIClient.getRetrofit().create(ChatAPI.class);
         sharedPreferences = getSharedPreferences("app", MODE_PRIVATE);
         showAccountInterestsButton.setEnabled(false);
         accountSecondActionButton.setEnabled(false);
@@ -303,6 +307,8 @@ public class ProfileActivity extends AppCompatActivity {
         accountActionButton.setEnabled(false);
         accountSecondActionButton.setEnabled(false);
         if (relationshipStatus == FRIEND_PROFILE) {
+            System.out.println("====");
+            System.out.println("FRIEND PROFILE");
             openChatView();
         } else if (relationshipStatus == NON_FRIEND_REQUESTED_PROFILE) {
             acceptFriendRequest();
@@ -331,7 +337,36 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void openChatView() {
-
+        if (null != extras && extras.containsKey("id")) {
+            System.out.println("====");
+            System.out.println("POSIADA ID");
+            Intent intent = new Intent(this, ChatActivity.class);
+            intent.putExtra("accountId2", extras.getInt("id"));
+            Call<Void> call = chatAPI.addChat(token, extras.getInt("id"));
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Response<Void> response = call.execute();
+                        if (response.isSuccessful()){
+                            System.out.println("POWIODLO SIE");
+                            startActivity(intent);
+                        } else {
+                            System.out.println("NIE POWIODLO SIE ZE STATUSEM: " + response.code());
+                        }
+                    } catch (IOException e) {
+                        System.out.println("wyjatek");
+                        e.printStackTrace();
+                    }
+                }
+            });
+            t.start();
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void onShowAccountInterestsBtnClick(View v) {

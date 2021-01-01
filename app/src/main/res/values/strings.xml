@@ -45,4 +45,5 @@
     <string name="change_relationship_type">Change relationship type</string>
     <string name="my_relationships">My relationships</string>
     <string name="friends">Friends</string>
+    <string name="message_content">message content</string>
 </resources>

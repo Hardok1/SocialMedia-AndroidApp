@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.application'
-
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -38,6 +38,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.google.code.gson:gson:2.8.6'
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+
+    // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-messaging'
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
     testImplementation 'junit:junit:4.+'
