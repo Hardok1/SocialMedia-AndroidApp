@@ -350,6 +350,24 @@ public class ProfileActivity extends AppCompatActivity {
                         Response<Void> response = call.execute();
                         if (response.isSuccessful()){
                             System.out.println("POWIODLO SIE");
+//                            int id1 = getSharedPreferences("app", MODE_PRIVATE).getInt("accountId", 0);
+//                            int id2 = extras.getInt("id");
+//                            String fcmChatId = id1 > id2 ? id2 + "_" + id1 : id1 + "_" + id2;
+//                            FirebaseMessaging.getInstance().subscribeToTopic(fcmChatId)
+//                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<Void> task) {
+//                                        System.out.println("SUBSCRIBED TO topic: " + fcmChatId);
+//                                        startActivity(intent);
+//                                    }
+//                                })
+//                                .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    System.out.println("FAILED subsribe to topic " + fcmChatId + " " + e.getMessage());
+//                                }
+//                            });
+
                             startActivity(intent);
                         } else {
                             System.out.println("NIE POWIODLO SIE ZE STATUSEM: " + response.code());
