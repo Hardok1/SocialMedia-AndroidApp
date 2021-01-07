@@ -247,16 +247,12 @@ public class ProfileActivity extends AppCompatActivity {
     public void onAccountActionBtnClick(View v) {
         accountActionButton.setEnabled(false);
         accountSecondActionButton.setEnabled(false);
-        System.out.println("======");
-        System.out.println("relacja: " + relationshipStatus);
         if (relationshipStatus == USER_PROFILE) {
             Intent intent = new Intent(this, EditProfileActivity.class);
             startActivity(intent);
         } else if (relationshipStatus != NON_FRIEND_PROFILE) {
-            System.out.println("NON FRIEND******");
             removeRelationship();
         } else {
-            System.out.println("SEND?");
             sendFriendRequest();
         }
         updateButtons();
@@ -287,12 +283,10 @@ public class ProfileActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                System.out.println("JEST RESPONSE");
                 if (response.isSuccessful()) {
                     Toast.makeText(ProfileActivity.this, "Relationship deleted successfully", Toast.LENGTH_SHORT).show();
                     relationshipStatus = NON_FRIEND_PROFILE;
                 } else {
-                    System.out.println("NIE UDALO SIE!");
                 }
             }
 
@@ -307,8 +301,6 @@ public class ProfileActivity extends AppCompatActivity {
         accountActionButton.setEnabled(false);
         accountSecondActionButton.setEnabled(false);
         if (relationshipStatus == FRIEND_PROFILE) {
-            System.out.println("====");
-            System.out.println("FRIEND PROFILE");
             openChatView();
         } else if (relationshipStatus == NON_FRIEND_REQUESTED_PROFILE) {
             acceptFriendRequest();
@@ -349,31 +341,9 @@ public class ProfileActivity extends AppCompatActivity {
                     try {
                         Response<Void> response = call.execute();
                         if (response.isSuccessful()){
-                            System.out.println("POWIODLO SIE");
-//                            int id1 = getSharedPreferences("app", MODE_PRIVATE).getInt("accountId", 0);
-//                            int id2 = extras.getInt("id");
-//                            String fcmChatId = id1 > id2 ? id2 + "_" + id1 : id1 + "_" + id2;
-//                            FirebaseMessaging.getInstance().subscribeToTopic(fcmChatId)
-//                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task) {
-//                                        System.out.println("SUBSCRIBED TO topic: " + fcmChatId);
-//                                        startActivity(intent);
-//                                    }
-//                                })
-//                                .addOnFailureListener(new OnFailureListener() {
-//                                @Override
-//                                public void onFailure(@NonNull Exception e) {
-//                                    System.out.println("FAILED subsribe to topic " + fcmChatId + " " + e.getMessage());
-//                                }
-//                            });
-
                             startActivity(intent);
-                        } else {
-                            System.out.println("NIE POWIODLO SIE ZE STATUSEM: " + response.code());
                         }
                     } catch (IOException e) {
-                        System.out.println("wyjatek");
                         e.printStackTrace();
                     }
                 }
